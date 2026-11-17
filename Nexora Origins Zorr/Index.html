@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#3f5638">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nexora Origins — Block World</title>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+</head>
+<body>
+<header>
+  <div class="brand" id="secretLogo" title="Something is hidden here...">Nexora Origins<small class="dev" title="Developer: Dixsya · King Rafa Rizquna · Mr.Zaky Al-Jawi· ">Developer: <span id="devName" aria-live="off">King Rafa Rizquna</span></small>
+    <small>block world · build, plant, harvest</small></div>
+  <form class="world-form" id="worldForm">
+    <input id="worldInput" maxlength="16" placeholder="world name" autocomplete="off" aria-label="World name">
+    <button class="primary" type="submit">Enter</button>
+  </form>
+  <div class="header-right"><span id="sndBox"></span><button id="nightBtn" type="button" class="night-btn" title="Switch to night mode" aria-pressed="false">🌙</button><span>💎 <b id="gems">0</b></span><a class="btn-link hlink" href="Old.html" title="Back to Valley Village">🏡 <span>Village</span></a><a class="btn-link hlink" id="menuBtn" href="landingpage.html" title="Change name &amp; character" aria-label="Menu">☰</a></div>
+</header>
+
+<div class="game">
+  <section class="stage-wrap">
+    <div class="stage" id="stage">
+      <canvas id="cv"></canvas>
+      <div class="chip" id="worldChip">WORLD</div>
+      <div class="toast" id="toast"></div>
+      <div class="pad pad-left"><button id="btnL" aria-label="Left">◀</button><button id="btnR" aria-label="Right">▶</button></div>
+      <div class="pad pad-right"><button id="btnJ" aria-label="Jump">▲</button></div>
+    </div>
+    <div class="hotbar" id="hotbar"></div>
+    <p class="selname" id="selName"></p>
+  </section>
+
+  <aside class="panel paper">
+    <div class="tabs">
+      <button class="tab active" data-p="chat">Chat</button>
+      <button class="tab" data-p="quest" id="questTab">Quests</button>
+      <button class="tab" data-p="shop">Shop</button>
+      <button class="tab" data-p="help">Help</button>
+    </div>
+    <div class="pane active" id="pane-chat">
+      <div class="log" id="log"></div>
+      <form id="chatForm" class="chat-form">
+        <input id="chatInput" maxlength="80" placeholder="Message… (Enter)" autocomplete="off">
+        <button class="primary" type="submit">Send</button>
+      </form>
+    </div>
+    <div class="pane" id="pane-quest"><div id="questBox"></div></div>
+    <div class="pane" id="pane-shop">
+      <p class="side-note shop-note">Harvest trees and mine gold ore to earn gems, then spend them on tools, torches, flowers, ladders and building materials.</p>
+      <div id="shopList"></div>
+    </div>
+    <div class="pane" id="pane-help">
+      <p class="side-note"><b>Computer:</b> A/D or ← → to walk, W / ↑ / Space to jump, click to act, keys 1–9 and 0 (or Q / E) to select an item, Enter to chat, F at the door to enter Valley Village. Hold Jump on a ladder to climb.</p>
+      <p class="side-note"><b>Phone:</b> use the ◀ ▶ ▲ buttons on screen, tap a tile to act, hold to repeat.</p>
+      <p class="side-note"><b>Pickaxe</b> (buy it in the Shop) breaks blocks twice as fast and always drops the block. <b>Fist</b> breaks blocks and harvests trees. <b>Gold ore</b> hides deep in the stone layer. <b>Door</b>: click the wooden door at the start (or press F next to it) to walk into Valley Village. Use the 🌙 button for night mode. <b>Torch</b> glows, <b>Flower</b> grows on dirt, <b>Ladder</b> lets you climb. <b>Black Door</b> blocks the way until you click it with a block selected to open or close it; use Fist or Pickaxe to break it. <b>Bed</b>: place it on a solid block, then stand next to it and press F (or click it with a block selected) at night to sleep until morning. Sleeping also sets your respawn point; use Fist or Pickaxe to break it. Use the 🔊 / 🎵 buttons in the header to toggle sound effects and music. <b>Seeds</b> are planted on top of dirt and grow into trees in 30 seconds.</p>
+      <p class="side-note"><b>Quests:</b> open the Quests tab for programming challenges from Zorr. Correct answers give gems and building materials.</p>
+      <p class="side-note"><b>Commands:</b> /help · /quests · /home · /sleep · /night · /day · /reset · /world name</p>
+      <p class="side-note">Type a different world name above to enter another world. Every name generates its own terrain.</p>
+      <div class="resetbox">
+        <h3>Reset data</h3>
+        <p class="side-note">Choose what to reset, then press the button. Quests are not included (use the Quests tab).</p>
+        <label class="tg"><input type="checkbox" id="rsBag" checked><span class="sw"></span><span class="tl">Bag blocks<small>dirt, stone, wood, brick, glass go back to the starting amounts</small></span></label>
+        <label class="tg"><input type="checkbox" id="rsWorld" checked><span class="sw"></span><span class="tl">Blocks in all worlds<small>builds and digging are erased, terrain is regenerated</small></span></label>
+        <label class="tg"><input type="checkbox" id="rsGems" checked><span class="sw"></span><span class="tl">Diamonds (gems)<small id="rsGemsInfo"></small></span></label>
+        <label class="tg"><input type="checkbox" id="rsGold" checked><span class="sw"></span><span class="tl">Gold in Valley Village<small id="rsGoldInfo"></small></span></label>
+        <button class="qreset" id="rsBtn" type="button">Reset selected</button>
+      </div>
+    </div>
+    <a class="btn-link" href="Old.html">🏡 Valley Village</a>
+  </aside>
+</div>
+<section class="secret-panel" id="secretPanel">
+  <h3>🔎 Zorr's Secret Notes</h3>
+  <p class="side-note">You found the hidden answer notes. Use them to learn, not just to skip quests.</p>
+  <div id="secretList"></div>
+  <p class="secret-hint">“Good knowledge is knowledge that is understood, not merely found.” — Zorr</p>
+</section>
+<footer>Nexora Origins · block world · prototype</footer>
+<script src="sound.js"></script>
+<script src="script.js"></script>
+<!-- Multiplayer Link -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="multiplayer.js"></script>
+</body>
+</html>

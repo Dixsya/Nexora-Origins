@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nexora Origins — Start</title>
+<link rel="stylesheet" href="landingpage.css">
+<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+</head>
+<body>
+<main class="landing">
+  <div class="l-card paper">
+    <div id="sndBox" style="position:absolute;top:8px;right:8px;display:flex;gap:6px"></div>
+    <h1 class="l-logo" id="lLogo" style="margin:0">Nexora Origins</h1>
+    <small class="l-sub" class="dev" title="Developer: King Rafa Rizquna · Mr.Zaky Al-Jawi· Dixsya Egha ">Developer: <span id="devName" aria-live="off">King Rafa Rizquna</span></small>
+    <div class="l-sub">block world · build, plant, harvest</div>
+    <canvas id="avatar" width="96" height="112" aria-hidden="true"></canvas>
+    <form id="startForm" autocomplete="off">
+      <label class="l-label" for="nameInput">Traveler name</label>
+      <input id="nameInput" maxlength="14" placeholder="Traveler" autocomplete="off">
+      <div class="l-label">Shirt color</div>
+      <div class="swatches" id="swatches"></div>
+      <button class="primary l-start" id="startBtn" type="submit">Start Adventure</button>
+    </form>
+    <p class="l-stat" id="lStat"></p>
+    <ul class="l-feat">
+      <li>⛏️ Break and place blocks</li>
+      <li>🌱 Plant trees, harvest gems</li>
+      <li>📜 Complete coding quests</li>
+    </ul>
+  </div>
+</main>
+<script src="sound.js"></script>
+<script src="landingpage.js"></script>
+</body>
+</html>

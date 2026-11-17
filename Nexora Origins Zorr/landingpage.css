@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Nunito:wght@400;600;700;800&display=swap');
+:root{--ink:#302b25;--paper:#f4e8c9;--green:#607c4b;--green2:#405b38}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;color:var(--ink);font-family:Nunito,Arial,sans-serif}
+button{cursor:pointer;font:20px VT323;border:2px solid var(--ink);background:#e3d1a7;color:var(--ink);padding:8px 12px;box-shadow:3px 3px 0 #8f7956;touch-action:manipulation}
+button:active{transform:translate(3px,3px);box-shadow:none}
+.primary{background:var(--green);color:#fff4d8}
+.primary:hover{background:#52703f}
+input{width:100%;padding:9px 10px;border:2px solid var(--ink);background:#fff7e3;font:19px VT323;color:var(--ink)}
+.paper{background:var(--paper);border:3px solid var(--ink);box-shadow:5px 5px 0 #806b4b;padding:14px}
+.landing{min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:16px;background:linear-gradient(180deg,#86bfe4 0 55%,#79975c 55% 62%,#8a6a45 62% 100%)}
+.landing:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.35) 1px,transparent 1px);background-size:10px 10px;opacity:.5}
+.l-card{position:relative;width:min(420px,100%);text-align:center;padding:20px 18px}
+.l-logo{font:26px 'Press Start 2P';color:var(--green2);line-height:1.4;text-shadow:3px 3px 0 #c9b88e}
+.l-sub{font:20px VT323;color:#756247;margin-bottom:6px}
+#avatar{display:block;margin:4px auto 8px;image-rendering:pixelated;background:#c7d49a;border:3px solid var(--ink);box-shadow:4px 4px 0 #9b835b}
+.l-label{display:block;font:20px VT323;text-align:left;margin:10px 0 4px}
+#nameInput{text-align:center;font-size:22px}
+.swatches{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.swatch{width:38px;height:38px;padding:0;border:3px solid var(--ink);box-shadow:2px 2px 0 #8f7956}
+.swatch.sel{outline:3px solid var(--green2);outline-offset:2px}
+.l-start{width:100%;margin-top:16px;padding:12px;font-size:24px}
+.l-stat{font:19px VT323;color:var(--green2);margin:10px 0 0;min-height:20px}
+.l-feat{list-style:none;margin:8px 0 0;padding:10px 0 0;border-top:2px dashed #c2aa7e;font:19px VT323;color:#6d604b;text-align:left;display:grid;gap:2px}
+@media(max-width:380px){.l-logo{font-size:20px}}
+.l-err{font:19px VT323;color:#a84c3e;min-height:20px;margin:6px 0 0}
+
+/* tombol suara di landing page */
+#sndBox{z-index:5}
+.l-card{padding-top:50px}
+.snd-btn:active{transform:none!important}
+.snd-btn:hover{filter:brightness(1.12)}
+
+.brand .dev{min-height:1.2em}
+#devName{display:inline-block;color:#d0a223;transition:opacity .3s,transform .3s}
+#devName.out{opacity:0;transform:translateY(-6px)}
